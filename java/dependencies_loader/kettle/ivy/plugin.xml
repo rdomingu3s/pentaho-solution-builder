@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+   id="IvyLoader"
+   iconfile="DPL.png"
+   description="IvyLoader"
+   tooltip="Step to Load Ivy Dependencies"
+   category="JobEntry"
+   classname="com.xpandit.pbf.pdi.JobEntryIvyLoader">
+   <libraries>
+    <library name="IvyLoader.jar"/>
+     <library name="ivy-2.3.0.jar"/>
+    </libraries>
+    
+   <localized_category>
+     <category locale="en_US">Xpand</category>
+   </localized_category>
+   <localized_description>
+     <description locale="en_US">Ivy</description>
+   </localized_description>
+   <localized_tooltip>
+     <tooltip locale="en_US">Step to Load Ivy Dependencies</tooltip>
+   </localized_tooltip>
+   
+</plugin>
