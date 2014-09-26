@@ -39,11 +39,41 @@
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
+    <read_only>true</read_only>
     <attributes>
       <attribute><code>EXTRA_OPTION_INFOBRIGHT.characterEncoding</code><attribute>UTF-8</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
       <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>50000</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>PentahoRefData</name>
+    <server>&#x24;&#x7b;refData.Host&#x7d;</server>
+    <type>GENERIC</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;refData.Database&#x7d;</database>
+    <port>&#x24;&#x7b;refData.Port&#x7d;</port>
+    <username>&#x24;&#x7b;refData.Username&#x7d;</username>
+    <password>&#x24;&#x7b;refData.Password&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>CUSTOM_DRIVER_CLASS</code><attribute>&#x24;&#x7b;refData.Driver&#x7d;</attribute></attribute>
+      <attribute><code>CUSTOM_URL</code><attribute>&#x24;&#x7b;refData.JDBC&#x7d;</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;refData.Port&#x7d;</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
     <slaveservers>
@@ -54,7 +84,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></job-log-table>
+<field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>START_JOB_ENTRY</id><enabled>N</enabled><name>START_JOB_ENTRY</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></job-log-table>
 <jobentry-log-table><connection/>
 <schema/>
 <table/>
@@ -65,6 +95,17 @@
 <table/>
 <timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<checkpoint-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<max_nr_retries/>
+<run_retry_period/>
+<namespace_parameter/>
+<save_parameters/>
+<save_result_rows/>
+<save_result_files/>
+<field><id>ID_JOB_RUN</id><enabled>Y</enabled><name>ID_JOB_RUN</name></field><field><id>ID_JOB</id><enabled>Y</enabled><name>ID_JOB</name></field><field><id>JOBNAME</id><enabled>Y</enabled><name>JOBNAME</name></field><field><id>NAMESPACE</id><enabled>Y</enabled><name>NAMESPACE</name></field><field><id>CHECKPOINT_NAME</id><enabled>Y</enabled><name>CHECKPOINT_NAME</name></field><field><id>CHECKPOINT_COPYNR</id><enabled>Y</enabled><name>CHECKPOINT_COPYNR</name></field><field><id>ATTEMPT_NR</id><enabled>Y</enabled><name>ATTEMPT_NR</name></field><field><id>JOB_RUN_START_DATE</id><enabled>Y</enabled><name>JOB_RUN_START_DATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>RESULT_XML</id><enabled>Y</enabled><name>RESULT_XML</name></field><field><id>PARAMETER_XML</id><enabled>Y</enabled><name>PARAMETER_XML</name></field></checkpoint-log-table>
    <pass_batchid>N</pass_batchid>
    <shared_objects_file/>
   <entries>
@@ -89,6 +130,16 @@
       <yloc>40</yloc>
       </entry>
     <entry>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>500</xloc>
+      <yloc>40</yloc>
+      </entry>
+    <entry>
       <name>Zip file</name>
       <description/>
       <type>ZIP_FILE</type>
@@ -102,40 +153,34 @@
       <afterzip>0</afterzip>
       <addfiletoresult>N</addfiletoresult>
       <isfromprevious>N</isfromprevious>
-      <createparentfolder>Y</createparentfolder>
+      <createparentfolder>N</createparentfolder>
       <adddate>N</adddate>
       <addtime>N</addtime>
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
       <createMoveToDirectory>N</createMoveToDirectory>
       <include_subfolders>Y</include_subfolders>
+      <stored_source_path_depth>1</stored_source_path_depth>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>240</xloc>
+      <xloc>360</xloc>
       <yloc>40</yloc>
       </entry>
     <entry>
-      <name>Success</name>
+      <name>Delete jar if exists</name>
       <description/>
-      <type>SUCCESS</type>
+      <type>DELETE_FILE</type>
+      <filename>&#x24;&#x7b;PBF_HOME&#x7d;&#x2f;plugins_dist&#x2f;&#x24;&#x7b;org&#x7d;-&#x24;&#x7b;name&#x7d;-&#x24;&#x7b;rev&#x7d;.jar</filename>
+      <fail_if_file_not_exists>N</fail_if_file_not_exists>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>380</xloc>
+      <xloc>220</xloc>
       <yloc>40</yloc>
       </entry>
   </entries>
   <hops>
-    <hop>
-      <from>START</from>
-      <to>Zip file</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
     <hop>
       <from>Zip file</from>
       <to>Success</to>
@@ -145,7 +190,51 @@
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
+    <hop>
+      <from>START</from>
+      <to>Delete jar if exists</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Delete jar if exists</from>
+      <to>Zip file</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
   </hops>
   <notepads>
+    <notepad>
+      <note>Delete the existing jar and create a new one</note>
+      <xloc>140</xloc>
+      <yloc>120</yloc>
+      <width>268</width>
+      <heigth>25</heigth>
+      <fontname>Microsoft Sans Serif</fontname>
+      <fontsize>8</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>0</backgroundcolorred>
+      <backgroundcolorgreen>255</backgroundcolorgreen>
+      <backgroundcolorblue>255</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
+<attributes><group><name>JobRestart</name>
+<attribute><key>UniqueConnections</key>
+<value>N</value>
+</attribute></group></attributes>
+
 </job>

@@ -19,4 +19,4 @@ BASEDIR=`dirname $0`
 
 cd $BASEDIR/base
 ./kitchen.sh -file="${KETTLE_HOME}/runtime/resolve_dependecies/main_resolve_dependecies.kjb"
-./kitchen.sh -file="${KETTLE_HOME}/runtime/executor/main_executor.kjb"  -param:target=$1
+./kitchen.sh -file="${KETTLE_HOME}/runtime/executor/main_executor.kjb"  -param:plugin=$1 -param:target=$2
