@@ -1,6 +1,0 @@
-KETTLE_JAVA_HOME=C:/Program Files/Java/jre7
-KETTLE_JVM_MEM=3048
-
-KETTLE_LOG_LEVEL=Basic
-KETTLE_DIR=C:/Pentaho/design-tools/data-integration
-KETTLE_HOME=C:/Users/xpand-it/Documents/eclipseWorkspace/pentaho-solution-builder
